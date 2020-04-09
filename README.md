@@ -44,3 +44,4 @@ python ./downloader.py \
     -images_per_class 500 \
     -multiprocessing_workers 24
 ```
+python ./downloader.py     -data_root dataset     -number_of_classes 100 images_per_class 200

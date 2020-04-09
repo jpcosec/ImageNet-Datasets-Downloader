@@ -1,4 +1,11 @@
+"""
+
+    Creates an unbalanced Imagenet2012 classification dataset
+
+"""
+
 import pandas as pd
+
 classes=[i.split(":")[-1] for i in open("Imagenet_classes").read().replace("}","").split('\n')]
 classes=[i.replace("'",'') for i in classes]
 data=pd.read_csv("classes_in_imagenet.csv")
