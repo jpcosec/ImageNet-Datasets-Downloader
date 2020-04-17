@@ -29,7 +29,7 @@ f.write("""python ./downloader.py \
     -data_root ./test1 \
     -use_class_list True \
     -class_list %s \
-    -images_per_class 5 \
+    -images_per_class 500 \
     -multiprocessing_workers 24 \ 
 """%" ".join([i for i in ids.values]))
 
