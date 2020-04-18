@@ -348,7 +348,7 @@ if __name__ == '__main__':
     parser.add_argument('-class_list', default=class_list.split(), nargs='*')
     parser.add_argument('-debug', default=False,type=lambda x: (str(x).lower() == 'true'))
 
-    parser.add_argument('-multiprocessing_workers', default = 12, type=int)
+    parser.add_argument('-multiprocessing_workers', default = 24, type=int)
 
     args, args_other = parser.parse_known_args()
     
