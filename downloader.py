@@ -14,7 +14,7 @@ from requests.exceptions import ConnectionError, ReadTimeout, TooManyRedirects, 
 
 
 def main(args):
-
+    logging.basicConfig(filename='imagenet_scarper.log', level=logging.INFO)
     if args.debug:
         logging.basicConfig(filename='imagenet_scarper.log', level=logging.DEBUG)
 
@@ -312,7 +312,7 @@ def main(args):
         print(f'Scraping images for class \"{class_name}\"')
         url_urls = IMAGENET_API_WNID_TO_URLS(class_wnid)
 
-        time.sleep(0.05)
+        time.sleep(0.25)
         resp = requests.get(url_urls)
 
         class_folder = os.path.join(imagenet_images_folder, class_name)
@@ -330,6 +330,8 @@ def main(args):
         with Pool(processes=args.multiprocessing_workers) as p:
             p.map(get_image,urls)
 
+        logging.info("[downloaded]%s:%i"%(class_name,int(multi_stats.get("all","success"))))
+
 
 
 if __name__ == '__main__':
@@ -340,9 +342,9 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='ImageNet image scraper')
     parser.add_argument('-scrape_only_flickr', default=True, type=lambda x: (str(x).lower() == 'true'))
     parser.add_argument('-number_of_classes', default = 10, type=int)
-    parser.add_argument('-images_per_class', default = 10, type=int)
-    parser.add_argument('-data_root', default='', type=str)
-    parser.add_argument('-use_class_list', default=False,type=lambda x: (str(x).lower() == 'true'))
+    parser.add_argument('-images_per_class', default = 2000, type=int)
+    parser.add_argument('-data_root', default='dataset', type=str)
+    parser.add_argument('-use_class_list', default=True,type=lambda x: (str(x).lower() == 'true'))
     parser.add_argument('-class_list', default=class_list.split(), nargs='*')
     parser.add_argument('-debug', default=False,type=lambda x: (str(x).lower() == 'true'))
 
