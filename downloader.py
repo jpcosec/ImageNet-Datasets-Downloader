@@ -341,7 +341,7 @@ if __name__ == '__main__':
     c=class_list.split()
     c.reverse()
     class_list=" ".join(c)
-    parser = argparse.ArgumentParser(description='ImageNet image scraper')
+    parser = argparse.ArgumentParser(description='ImageNet class2012 image scraper')
     parser.add_argument('-scrape_only_flickr', default=True, type=lambda x: (str(x).lower() == 'true'))
     parser.add_argument('-number_of_classes', default = 100, type=int)
     parser.add_argument('-images_per_class', default = 1000, type=int)
