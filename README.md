@@ -1,3 +1,7 @@
+## Edit
+
+I modified the original downloader to use only LVSRC2012 classes images and run on windows. To use run LVSRC.py to create and run downloader.sh.
+
 # ImageNet Downloader
 
 This is ImageNet dataset downloader. **You can create new datasets from subsets of ImageNet by specifying how many 
